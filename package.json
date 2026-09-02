@@ -20,7 +20,7 @@
     "expo-gl": "latest",
     "lucide-react": "^0.454.0",
     "motion": "^13.1.1",
-    "next": "15.5.3",
+    "next": "15.5.9",
     "pdf-lib": "^1.17.1",
     "react": "19.1.0",
     "react-dom": "19.1.0",
