@@ -1,0 +1,17 @@
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+reportlab==4.2.5
+pypdf==5.0.1
+pymupdf==1.28.2
+qrcode[pil]==7.4.2
+Pillow==10.4.0
+fonttools==4.54.1
+python-dotenv==1.0.1
+requests==2.32.3
+cloudinary==1.41.0
+python-multipart==0.0.9
+firebase-admin==6.5.0
+
+# Contrôle qualité des QR générés (check_qr.py)
+zxing-cpp==3.1.1
+numpy==2.5.2
