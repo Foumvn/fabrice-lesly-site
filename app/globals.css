@@ -3,6 +3,7 @@
 :root {
 	--background: #ffffff;
 	--foreground: #171717;
+	color-scheme: light;
 }
 
 @theme inline {
@@ -13,12 +14,8 @@
 	--font-serif: var(--font-instrument);
 }
 
-@media (prefers-color-scheme: dark) {
-	:root {
-		--background: #0a0a0a;
-		--foreground: #ededed;
-	}
-}
+/* Mode sombre automatique désactivé : le site reste en clair par défaut,
+   quelle que soit la préférence du navigateur/OS. */
 
 body {
 	background: var(--background);
