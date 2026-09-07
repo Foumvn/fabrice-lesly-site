@@ -67,10 +67,32 @@ def guest_payload(g: dict, urls: dict | None) -> dict:
     return payload
 
 
+def _clear_guests():
+    """Vide la collection guests via l'API Next.js."""
+    try:
+        r = requests.get(f"{NEXT_BASE}/api/guests", timeout=20)
+        if r.status_code != 200:
+            print(f"[WARN] Impossible de lister les invités: HTTP {r.status_code}")
+            return
+        for g in r.json().get("guests", []):
+            gid = g.get("id")
+            if not gid:
+                continue
+            d = requests.delete(f"{NEXT_BASE}/api/guests/{gid}", timeout=20)
+            if d.status_code == 200:
+                print(f"[DEL] {gid}")
+            else:
+                print(f"[WARN] échec suppression {gid}: HTTP {d.status_code}")
+    except Exception as e:
+        print(f"[WARN] Erreur nettoyage: {e}")
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--urls", nargs="?", const=DEFAULT_URLS,
                         help="Fichier urls-cloudinary.json optionnel")
+    parser.add_argument("--rebuild", action="store_true",
+                        help="Vide d'abord la collection guests, puis réimporte")
     args = parser.parse_args()
 
     urls = None
@@ -84,6 +106,10 @@ def main():
     guests = parse_csv(DATA_CSV)
     for i, g in enumerate(guests, 1):
         g["id"] = f"guest-{i:03d}"
+
+    if args.rebuild:
+        print("[INFO] Rebuild demandé : nettoyage de la collection guests")
+        _clear_guests()
 
     ok, err = 0, []
     for g in guests:

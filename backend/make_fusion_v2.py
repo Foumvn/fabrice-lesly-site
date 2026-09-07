@@ -56,7 +56,7 @@ LINK_PRESENCE = (80, 1205, 380, 1430)     # -> /presence
 LINK_INFO = (688, 1205, 988, 1430)        # -> /
 
 # ---------------------------------------------------------------------------
-# Nouveau plan de table (ordre = nouvelle numérotation guest-001..025)
+# Nouveau plan de table (ordre = nouvelle numérotation guest-001..029)
 # ---------------------------------------------------------------------------
 APOGEE = [
     "Gisèle Akono", "Andrea Song", "Armel Mboh", "Diane Ebissesseye",
@@ -68,7 +68,10 @@ COURONNE = [
     "Synthia Akono", "Ingrid Tang", "Kendal Bebine", "Norvège",
     "Leslie Abbia", "Anastasie Mandeng",
 ]
-MAJESTE = ["Delano Saha", "Priscillia Ondo", "Opportun Enyegue"]
+MAJESTE = [
+    "Delano Saha", "Priscillia Ondo", "Opportun Enyegue",
+    "Dorice Tsogo", "Dodine", "Ronel", "Olivia Mengue",
+]
 CARTONNES = ["Mama Denise", "Mama Léopoldine"]
 
 GUESTS = (
