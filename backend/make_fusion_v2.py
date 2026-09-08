@@ -56,7 +56,7 @@ LINK_PRESENCE = (80, 1205, 380, 1430)     # -> /presence
 LINK_INFO = (688, 1205, 988, 1430)        # -> /
 
 # ---------------------------------------------------------------------------
-# Nouveau plan de table (ordre = nouvelle numérotation guest-001..030)
+# Nouveau plan de table (ordre = nouvelle numérotation guest-001..039)
 # ---------------------------------------------------------------------------
 APOGEE = [
     "Gisèle Akono", "Andrea Song", "Armel Mboh", "Diane Ebissesseye",
@@ -74,12 +74,18 @@ MAJESTE = [
     "Alex",
 ]
 CARTONNES = ["Mama Denise", "Mama Léopoldine"]
+PROMO14 = [
+    "Guillaume Tsoye", "Tenda", "Sylvestre Mbassi", "Laureine Mape",
+    "Leonie Nnomo", "Julie Ango", "Sandrine Beyegue", "Ngono Ondobo",
+    "Samiel Ngougni",
+]
 
 GUESTS = (
     [("Table Apogée", n) for n in APOGEE]
     + [("Table Couronne", n) for n in COURONNE]
     + [("Table Majesté", n) for n in MAJESTE]
     + [("Billets cartonnés", n) for n in CARTONNES]
+    + [("Promo 14", n) for n in PROMO14]
 )
 
 
