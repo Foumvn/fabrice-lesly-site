@@ -113,7 +113,7 @@ def make_one(out: pymupdf.Document, name: str, table: str, gid: str,
     # --- page 1 : la nouvelle enveloppe ---
     out.insert_pdf(page1_base)
 
-    old_fusion = os.path.join(OUT_DIR, f"Billet - {name}.pdf")
+    old_fusion = os.path.join(OUT_DIR, _safe(table), f"Billet - {name}.pdf")
     invitation_pdf = os.path.join(GUESTS_DIR, _safe(name), "invitation.pdf")
 
     if os.path.exists(old_fusion):
@@ -180,7 +180,9 @@ def main():
         try:
             out = pymupdf.open()
             make_one(out, name, table, gid, page1_base, programme)
-            dst = os.path.join(OUT_DIR, f"Billet - {name}.pdf")
+            table_dir = os.path.join(OUT_DIR, _safe(table))
+            os.makedirs(table_dir, exist_ok=True)
+            dst = os.path.join(table_dir, f"Billet - {name}.pdf")
             out.save(dst, garbage=3, deflate=True)
             out.close()
             ok += 1
